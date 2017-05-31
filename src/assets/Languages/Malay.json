@@ -1,12 +1,12 @@
 ﻿{
   "LanguageData": [
     {
-      "ProjectName": "ESAWIT",
+      "ProjectName": "eSAWIT",
       "SurveyorModule": {        "CountBunches": {          "lblHeader": "Kira Tandan",
                                                                                         "lblMonth": "Bulan",
                                                                                          "lblLocation": "Lokasi",
                                                                                          "lblTotalBunches": "Bil. Tandan",
-                                                                                         "btnSubmit": "Hantari"
+                                                                                         "btnSubmit": "Hantar"
                                                                                },
                                                "BunchesHistory": {
                                                                                          "lblHeader": "Sejarah Kira Tandan",
@@ -29,7 +29,7 @@
                                                                                       "lblTransportNow": "Untuk Diangkut"
                                                                                     }
                                    },
-      "Description": "Palmolive pokok kiraan"
+      "Description": "Pengiraan sawit"
     }
    
   ]
