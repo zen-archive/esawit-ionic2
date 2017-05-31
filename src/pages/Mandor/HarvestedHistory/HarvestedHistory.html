@@ -1,0 +1,32 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title> ESAWIT</ion-title>
+    <ion-buttons end>
+      <button ion-right ion-button icon-only (click)="openGlobalMenu()">
+        <ion-icon name='menu'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-list inset *ngFor="let label of labelsFromStorage">
+    <h1>{{label.MandorModule.BunchesTransported.lblHeader}}</h1>
+    <ion-list-header>
+      <ion-avatar item-left> <b>{{label.MandorModule.BunchesTransported.lblNo}}</b> </ion-avatar>
+      <ion-avatar item-right> <b>{{label.MandorModule.BunchesTransported.lblTransportNow}}</b> </ion-avatar>
+    </ion-list-header>
+    <ion-item *ngFor="let item of harvestedHistoryData; let i = index;" (click)="itemSelected(item)">
+      <ion-avatar item-left>
+        <button ion-button color="light"> {{i+1}} </button>
+      </ion-avatar>
+      <h2>{{ item.location_GUID }}</h2>
+      <h3>{{item .bunch_count}}</h3>
+      <ion-avatar item-right>
+        <button ion-button icon-only>
+        <ion-icon name="bus"></ion-icon>
+      </button>
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
+</ion-content>
