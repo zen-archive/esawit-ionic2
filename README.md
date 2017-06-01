@@ -1,6 +1,17 @@
 # esawit
 eSawit App
 
+Contributors:
+    Khairulnizam
+    Shabbeer
+
+Getting started:
+    Once pulled from github, do the following:
+    1. Open node.js command prompt
+    2. Change folder to location of project
+    3. Issue command: 'npm link'
+    4. Test with: 'ionic serve' or 'ionic serve -l'
+
 
 i18n using angular-translate:
 Steps:
