@@ -10,14 +10,18 @@ import { SettingsPage } from '../Settings/Settings';
     templateUrl: 'Login.html'
 })
 export class LoginPage {
+
     constructor(private mainMenu: MainMenu, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController) {
+
     }
+
     onLink(url: string) {
         window.open(url);
     }
     openGlobalMenu() {
         this.mainMenu.openMenu();
     }
+
     public loginSurveyor() {
                 this.navCtrl.setRoot(SurveyorHomePage);
     }
