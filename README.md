@@ -1,11 +1,10 @@
-# esawit
-eSawit App
+# eSawit App
 
-Contributors:
-    Khairulnizam
-    Shabbeer
+## Contributors:
+   - Khairulnizam
+   - Shabbeer
 
-Getting started:
+## Getting started:
     Once pulled from github, do the following:
     1. Open node.js command prompt
     2. Change folder to location of project
@@ -13,7 +12,7 @@ Getting started:
     4. Test with: 'ionic serve' or 'ionic serve -l'
 
 
-i18n using angular-translate:
+## i18n using angular-translate
 Steps:
 1. npm install @ngx-translate/core @ngx-translate/http-loader
 2. Edit (one-time only) 'src/app/app.module.ts'
