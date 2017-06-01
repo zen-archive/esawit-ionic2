@@ -14,6 +14,11 @@ import { CountBunchesPage } from '../pages/Surveyor/CountBunches/CountBunches';
 import { CountBunchesHistoryPage } from '../pages/Surveyor/CountBunchesHistory/CountBunchesHistory';
 import { SurveyorHomePage } from '../pages/Surveyor/SurveyorHome/SurveyorHome';
 
+// Translation Service:
+import { HttpModule, Http } from '@angular/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -21,9 +26,16 @@ import { SurveyorHomePage } from '../pages/Surveyor/SurveyorHome/SurveyorHome';
       SettingsPage,LoginPage,
       SurveyorHomePage,CountBunchesPage,CountBunchesHistoryPage
   ],
-  imports: [
-    IonicModule.forRoot(MyApp)
-  ],
+imports: [
+    IonicModule.forRoot(MyApp),
+    TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+    }
+  })
+],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -34,3 +46,6 @@ import { SurveyorHomePage } from '../pages/Surveyor/SurveyorHome/SurveyorHome';
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Storage]
 })
 export class AppModule {}
+export function createTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
