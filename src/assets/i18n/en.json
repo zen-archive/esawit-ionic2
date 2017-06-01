@@ -7,5 +7,7 @@
     "_SETTINGS_BTN": "Settings",
     "_HARVEST_BTN": "Harvest bunches",
     "_HARVEST_HISTORY_BTN": "Harvest History",
-    "_HOME": "Home"
+    "_HOME": "Home",
+    "_SELECT_LANGUAGE_LBL": "Language Selection",
+    "_SELECT_LANGUAGE_HINT": "Select language"
 }
