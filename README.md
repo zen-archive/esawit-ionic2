@@ -48,3 +48,17 @@ Steps:
         "_TITLE": "eSawit",
         "_NAME": "Name",
         }
+6. Edit mainmenu.ts:
+    a. Add: import { TranslateService } from '@ngx-translate/core';
+    b. Inject: 
+      constructor(public app: App, public http: Http, public actionsheetCtrl: ActionSheetController, public translate: TranslateService) {
+    c. In OpenMenu(), add menu item texts as i.e:
+         let home_btn = this.translate.get("_HOME")["value"];
+    d. In 'buttons', change to i.e:
+            buttons: [
+                {
+                text: home_btn,
+                icon: 'home',
+                handler: () => {
+                    this.navCtrl.setRoot(MandorHomePage);
+                }

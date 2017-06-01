@@ -4,5 +4,10 @@
     "_SURVEYOR_BTN": "Surveyor",
     "_MANDOR_BTN": "Supervisor",
     "_FACTORY_BTN": "Factory",
-    "_SETTINGS_BTN": "Settings"
+    "_SETTINGS_BTN": "Settings",
+    "_HARVEST_BTN": "Harvest bunches",
+    "_HARVEST_HISTORY_BTN": "Harvest History",
+    "_HOME": "Home",
+    "_SELECT_LANGUAGE_LBL": "Language Selection",
+    "_SELECT_LANGUAGE_HINT": "Select language"
 }

@@ -11,10 +11,16 @@ import { SurveyorHomePage } from '../pages/Surveyor/SurveyorHome/SurveyorHome';
 
 import 'rxjs/add/operator/map';
 
+// Translation Service:
+import { TranslateService } from '@ngx-translate/core';
+//import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+//import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 @Injectable()
 export class MainMenu {
   navCtrl: any;
-  constructor(public app: App, public http: Http, public actionsheetCtrl: ActionSheetController) {
+  constructor(public app: App, public http: Http, public actionsheetCtrl: ActionSheetController, public translate: TranslateService) {
+//    translate.setDefaultLang('en');
     this.navCtrl = this.app.getActiveNav();
     console.log('Hello ActionSheet Provider');
   }
@@ -23,32 +29,39 @@ export class MainMenu {
 
   }
   openMenu() {
+    let home_btn = this.translate.get("_HOME")["value"];
+    let harvest_btn = this.translate.get("_HARVEST_BTN")["value"];
+    let harvest_history_btn = this.translate.get("_HARVEST_HISTORY_BTN")["value"];
+    let settings_btn = this.translate.get("_SETTINGS_BTN")["value"];
+
+
+
     let actionSheet = this.actionsheetCtrl.create({
       cssClass: 'action-sheets-basic-page',
       buttons: [
         {
-          text: 'Home',
+          text: home_btn,
           icon: 'home',
           handler: () => {
             this.navCtrl.setRoot(MandorHomePage);
           }
         },
         {
-          text: 'Harvest Bunches',
+          text: harvest_btn,
           icon: 'cut',
           handler: () => {
             this.navCtrl.setRoot(HarvestBunchesPage);
           }
         },
         {
-          text: 'Harvested History',
+          text: harvest_history_btn,
           icon: 'bus',
           handler: () => {
             this.navCtrl.setRoot(HarvestedHistoryPage);
           }
         },
         {
-          text: 'Settings',
+          text: settings_btn,
           icon: 'settings',
           handler: () => {
             this.navCtrl.setRoot(SettingsPage);
