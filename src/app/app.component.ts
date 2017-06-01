@@ -8,6 +8,9 @@ import { MandorHomePage } from '../pages/Mandor/MandorHome/MandorHome';
 import {MainMenu} from "../providers/MainMenu";
 import {LoginPage} from '../pages/Shared/Login/Login';
 
+// Translation Service:
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   templateUrl: 'app.html',
   providers:[MainMenu]
@@ -19,13 +22,14 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public mainMenu:MainMenu,public platform: Platform) {
+constructor(public platform: Platform, translate: TranslateService) {
+    translate.setDefaultLang('en');
     this.initializeApp();
-
     this.pages = [
         { title: 'Home', component: MandorHomePage }    ];
 
   }
+
 
   initializeApp() {
     this.platform.ready().then(() => {
