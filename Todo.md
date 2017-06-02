@@ -1,3 +1,3 @@
 - [ ] Surveyor
     - [ ] Month (select list) from json file (Change the json format to sync with DB data)    @steelburn
-    - [ ] Add labels for Multilingual @Shabbeer-Zen
+    - [ ] Add labels for Multilingual from local json file with new json format @Shabbeer-Zen
