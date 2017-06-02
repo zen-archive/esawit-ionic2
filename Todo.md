@@ -1,2 +1,2 @@
 - [ ] Surveyor
-    -[ ] Month (select list) from json file
+    - [ ] Month (select list) from json file
