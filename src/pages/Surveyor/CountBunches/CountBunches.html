@@ -12,17 +12,17 @@
   <ion-list inset *ngFor="let label of labelsFromStorage">
     <h1>{{label.SurveyorModule.CountBunches.lblHeader}}</h1>
     <form [formGroup]="AddTransaction">
+   
+
       <ion-item>
         <ion-label fixed>{{label.SurveyorModule.CountBunches.lblMonth}}</ion-label>
          <ion-select [formControl]="AddTransaction.controls['month']" [(ngModel)]="monthSelect" interface="popover" placeholder="-Please Select-">
           <ion-option *ngFor="let month of monthsFromStorage" value={{month.value}}>{{month.name}}</ion-option>
         </ion-select>
-        <!--<ion-input [formControl]="AddTransaction.controls['month']" highlight-color="energized" type="text"></ion-input>-->
       </ion-item>
 
       <ion-item>
         <ion-label>{{label.SurveyorModule.CountBunches.lblLocation}}</ion-label>
-        <!--<ion-select  [formControl]="AddTransaction.controls['location_GUID']" [(ngModel)]="locationSelect" interface="popover" placeholder="-Please Select-" (ionChange)="onSelectChange($event)">-->
         <ion-select [formControl]="AddTransaction.controls['location_GUID']" [(ngModel)]="locationSelect" interface="popover" placeholder="-Please Select-">
           <ion-option *ngFor="let item of locationListFromDb" value={{item.location_GUID}}>{{item.name}}</ion-option>
         </ion-select>
