@@ -16,7 +16,7 @@ export class HarvestedHistoryPage {
     harvestedHistoryData: any;
     constructor(private mainMenu: MainMenu, public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public viewCtrl: ViewController, public http: Http, public platform: Platform, public actionsheetCtrl: ActionSheetController) {
         this.getLanguage();
-        var url = "http://api.zen.com.my/api/v2/esawitdb/_table/transact_harvest?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
+        var url = "http://api.zen.com.my/api/v2/esawitdb/_table/transact_harvest_view?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
         this.http.get(url).map(res => res.json()).subscribe(data => {
             this.harvestedHistoryData = data["resource"];
 
