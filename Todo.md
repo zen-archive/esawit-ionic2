@@ -6,4 +6,3 @@
     - [ ] Harvest Bunches page need to be changed (refer the khairul's sketch) @Shabbeer-Zen
     - [ ] No home page for Mandor, directly navigate to Harvest Bunches page @Shabbeer-Zen
     - [ ] For Loading: Need to select Lorry No.(Master_vehicle), Driver (Master_driver & driver-vehicle) from DB @Shabbeer-Zen
-    - [ ] 
