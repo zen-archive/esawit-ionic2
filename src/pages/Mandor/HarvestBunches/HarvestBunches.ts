@@ -28,8 +28,8 @@ export class HarvestBunchesPage {
 
         this.AddTransaction = this._form.group({
             "location_GUID": ["", Validators.required],
-            "bunch_count": ["", Validators.required],
-            "harvested_date": ["", Validators.required]
+            "bunch_count": ["", Validators.required]
+            // ,            "harvested_date": ["", Validators.required]
         });
     }
     // getLanguage() {

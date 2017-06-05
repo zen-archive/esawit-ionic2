@@ -3,6 +3,7 @@ import { NavController, Platform, ActionSheetController } from 'ionic-angular';
 import { MandorHomePage } from '../../Mandor/MandorHome/MandorHome';
 import { MainMenu } from "../../../providers/MainMenu";
 import { SurveyorHomePage } from '../../Surveyor/SurveyorHome/SurveyorHome';
+import { FactoryHomePage } from '../../Factory/FactoryHome/FactoryHome';
 import { SettingsPage } from '../Settings/Settings';
 
 @Component({
@@ -25,7 +26,7 @@ export class LoginPage {
                 this.navCtrl.setRoot(MandorHomePage);
     }
      public loginFactory() {
-                this.navCtrl.setRoot(MandorHomePage);
+                this.navCtrl.setRoot(FactoryHomePage);
     }
          public Settings() {
         this.navCtrl.push(SettingsPage, {});
