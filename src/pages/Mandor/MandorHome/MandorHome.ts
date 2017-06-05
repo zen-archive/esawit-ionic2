@@ -22,7 +22,6 @@ export class MandorHomePage {
     }
 
     public NewHarvest() {
-        // this.gas.testMe();
         this.navCtrl.push(HarvestBunchesPage, {});
     }
     public GetHistory() {

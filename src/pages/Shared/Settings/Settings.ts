@@ -71,20 +71,20 @@ export class SettingsPage {
     this.storage.set('language', lang);
   }
 
-  getLanguage() {
-    this.storage.get('language').then(lang => {
-      this.showAlert(lang);
-    });
-  }
+  // getLanguage() {
+  //   this.storage.get('language').then(lang => {
+  //     this.showAlert(lang);
+  //   });
+  // }
 
-  showAlert(language) {
-    let alert = this.alertCtrl.create({
-      title: 'Selected Language',
-      subTitle: language,
-      buttons: ['OK']
-    });
-    alert.present();
-  }
+  // showAlert(language) {
+  //   let alert = this.alertCtrl.create({
+  //     title: 'Selected Language',
+  //     subTitle: language,
+  //     buttons: ['OK']
+  //   });
+  //   alert.present();
+  // }
 
 
   ionViewDidLoad() {

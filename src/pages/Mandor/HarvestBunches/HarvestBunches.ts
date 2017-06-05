@@ -4,26 +4,26 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HarvestedHistoryPage } from '../HarvestedHistory/HarvestedHistory';
 import { Observable } from 'rxjs/Observable';
-import { Storage } from '@ionic/storage';
-import { MandorHomePage } from '../MandorHome/MandorHome';
-import { SettingsPage } from '../../Shared/Settings/Settings';
-import { MainMenu } from "../../../providers/MainMenu";
+// import { Storage } from '@ionic/storage';
+// import { MandorHomePage } from '../MandorHome/MandorHome';
+// import { SettingsPage } from '../../Shared/Settings/Settings';
+// import { MainMenu } from "../../../providers/MainMenu";
 
 @Component({
     selector: 'page-HarvestBunches',
     templateUrl: 'HarvestBunches.html'
 })
 export class HarvestBunchesPage {
-    items: any;
+    locationFromDB: any;
     AddTransaction: FormGroup;
     labelsFromStorage: any;
-    // private mainMenu:MainMenu,
-    constructor(public actionsheetCtrl: ActionSheetController, private storage: Storage,
+    // private mainMenu:MainMenu, private storage: Storage,
+    constructor(public actionsheetCtrl: ActionSheetController,
         public platform: Platform, public toastCtrl: ToastController, public navCtrl: NavController, public http: Http, public _form: FormBuilder, public navParams: NavParams, public alertCtrl: AlertController) {
-        this.getLanguage();
+        // this.getLanguage();
         var url = "http://api.zen.com.my/api/v2/esawitdb/_table/master_location?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
         this.http.get(url).map(res => res.json()).subscribe(data => {
-            this.items = data["resource"];
+            this.locationFromDB = data["resource"];
         });
 
         this.AddTransaction = this._form.group({
@@ -32,58 +32,58 @@ export class HarvestBunchesPage {
             "harvested_date": ["", Validators.required]
         });
     }
-    getLanguage() {
-        this.storage.get('language').then(lang => {
-            var url = "assets/Languages/" + lang + ".json";
-            console.log("val", url);
-            this.http.get(url).map(res => res.json()).subscribe(data => {
-                this.labelsFromStorage = data["LanguageData"];
-            });
-        });
-    }
+    // getLanguage() {
+    //     this.storage.get('language').then(lang => {
+    //         var url = "assets/Languages/" + lang + ".json";
+    //         console.log("val", url);
+    //         this.http.get(url).map(res => res.json()).subscribe(data => {
+    //             this.labelsFromStorage = data["LanguageData"];
+    //         });
+    //     });
+    // }
     //     openGlobalMenu(){
     // this.mainMenu.openMenu();
     //     }
 
 
-    openMenu() {
-        let actionSheet = this.actionsheetCtrl.create({
-            cssClass: 'action-sheets-basic-page',
-            buttons: [
-                {
-                    text: 'Home',
-                    icon: 'home',
-                    handler: () => {
-                        this.navCtrl.setRoot(MandorHomePage);
+    // openMenu() {
+    //     let actionSheet = this.actionsheetCtrl.create({
+    //         cssClass: 'action-sheets-basic-page',
+    //         buttons: [
+    //             {
+    //                 text: 'Home',
+    //                 icon: 'home',
+    //                 handler: () => {
+    //                     this.navCtrl.setRoot(MandorHomePage);
 
-                    }
-                },
-                {
-                    text: 'Harvest Bunches',
-                    icon: 'cut',
-                    handler: () => {
-                        this.navCtrl.setRoot(HarvestBunchesPage);
-                    }
-                },
-                {
-                    text: 'Harvested History',
-                    icon: 'bus',
-                    handler: () => {
-                        this.navCtrl.setRoot(HarvestedHistoryPage);
-                    }
-                },
-                {
-                    text: 'Settings',
-                    icon: 'settings',
-                    handler: () => {
-                        this.navCtrl.setRoot(SettingsPage);
-                    }
-                }]
+    //                 }
+    //             },
+    //             {
+    //                 text: 'Harvest Bunches',
+    //                 icon: 'cut',
+    //                 handler: () => {
+    //                     this.navCtrl.setRoot(HarvestBunchesPage);
+    //                 }
+    //             },
+    //             {
+    //                 text: 'Harvested History',
+    //                 icon: 'bus',
+    //                 handler: () => {
+    //                     this.navCtrl.setRoot(HarvestedHistoryPage);
+    //                 }
+    //             },
+    //             {
+    //                 text: 'Settings',
+    //                 icon: 'settings',
+    //                 handler: () => {
+    //                     this.navCtrl.setRoot(SettingsPage);
+    //                 }
+    //             }]
 
 
-        });
-        actionSheet.present();
-    }
+    //     });
+    //     actionSheet.present();
+    // }
 
     onLink(url: string) {
         window.open(url);
