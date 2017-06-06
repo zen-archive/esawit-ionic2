@@ -2,7 +2,6 @@
   <ion-navbar>
     <ion-title> {{ "_TITLE" | translate }}</ion-title>
     <ion-buttons end>
-      <!--<button ion-right ion-button icon-only (click)="openGlobalMenu()">-->
       <button ion-right ion-button icon-only >
         <ion-icon name='menu'></ion-icon>
       </button>
@@ -11,7 +10,6 @@
 </ion-header>
 <ion-content padding>
 
-  <!--<ion-list inset *ngFor="let label of labelsFromStorage">-->
     <ion-list> 
           <h2>{{ "_ACCEPTED_BUNCHES_HISTORY_HEADER" | translate }}</h2>
     <ion-list-header>
@@ -26,8 +24,7 @@
       </ion-avatar>
       <h2>{{ history.vehicle_GUID }}</h2>
       <h2>{{history .loading_location_GUID}}</h2>
-            <h2>{{history .bunch_count}}</h2>
-    
+            <h2>{{history .bunch_count}}</h2>    
     </ion-item>
   </ion-list>
 </ion-content>

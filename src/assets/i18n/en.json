@@ -2,6 +2,7 @@
     "_MENU": "Menu",
     "_TITLE": "eSawit Mobile",
 
+    "_CONFIRMATION_TITLE":"Create New Record?",
     "_SURVEYOR_BTN": "Surveyor",
     "_MANDOR_BTN": "Supervisor",
     "_FACTORY_BTN": "Factory",
@@ -13,6 +14,7 @@
     "_ACCEPT_BUNCHES_BTN":"Accept Bunches",
     "_ACCEPTED_BUNCHES_HISTORY_BTN":"Accepted Bunches History",
     "_SUBMIT_BTN":"Submit", 
+    "_LOAD_BTN":"Load",
 
     "_HOME": "Home",
 
@@ -25,6 +27,10 @@
     "_MONTH_LBL":"Month",
     "_VEHICLE_NO_LBL":"Vehicle No.",
     "_DRIVER_LBL":"Driver",
+    "_BUNCHES_ADDED_LBL":"Added",
+    "_TOTAL_HARVESTED_LBL":"Total Harvested Today",
+    "_LOADED_LBL":"Loaded",
+    "_BALANCE_LBL":"Balance",
 
     "_SELECT_LANGUAGE_HINT": "Select Language",
     "_SELECT_LOCATION_HINT": "Select Location",

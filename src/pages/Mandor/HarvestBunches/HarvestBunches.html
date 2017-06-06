@@ -2,7 +2,6 @@
   <ion-navbar>
     <ion-title>{{ "_TITLE" | translate }}</ion-title>
     <ion-buttons end>
-      <!--<button ion-right ion-button icon-only (click)="openMenu()">-->
       <button ion-right ion-button icon-only>
         <ion-icon name='menu'></ion-icon>
       </button>
@@ -10,33 +9,44 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <!--<ion-list inset *ngFor="let label of labelsFromStorage">-->
-      <ion-list >
+<ion-list >
 
     <h1>{{ "_HARVEST_BUNCHES_HEADER" | translate }}</h1>
-    <form [formGroup]="AddTransaction">
-      <!--<ion-item>
-        <ion-label fixed>{{ "_DATE_LBL" | translate }}</ion-label>
-        <ion-input [formControl]="AddTransaction.controls['harvested_date']" highlight-color="energized" type="text"></ion-input>
-      </ion-item>-->
+    <form [formGroup]="AddTransaction">  
 
       <ion-item>
         <ion-label>{{ "_LOCATION_LBL" | translate }}</ion-label>
-        <ion-select [formControl]="AddTransaction.controls['location_GUID']" [(ngModel)]="locationSelect" interface="popover" placeholder= '{{"_SELECT_LOCATION_HINT" | translate}}'>
-          <ion-option *ngFor="let location of locationFromDB" value={{location.location_GUID}}>{{location.name}}</ion-option>
+        <ion-select [formControl]="AddTransaction.controls['location_GUID']" [(ngModel)]="locationSelect" 
+        interface="popover" placeholder= '{{"_SELECT_LOCATION_HINT" | translate}}'  (ionChange)="onLocationSelect(locationSelect)">
+          <ion-option *ngFor="let location of locationFromDB" value={{location.location_GUID}}>{{location.location_name}}</ion-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label fixed>{{ "_TOTAL_BUNCHES_LBL" | translate }}</ion-label>
-        <ion-input [formControl]="AddTransaction.controls['bunch_count']" highlight-color="energized" type="text"></ion-input>
+        <ion-input [(ngModel)]="bindCount" [formControl]="AddTransaction.controls['bunch_count']" highlight-color="energized" type="text"></ion-input>
       </ion-item>
-
 
       <ion-col>
         <button ion-button full type="submit" (click)="submitCount()">{{ "_SUBMIT_BTN" | translate }}</button>
       </ion-col>
 
-    </form>
+    </form>    
   </ion-list>
+
+  <ion-card class="cards-list-demo" *ngFor="let location of locationFromDB">
+    <ion-card-header>
+     {{ "_LOCATION_LBL" | translate }} : {{location.location_name}}
+    </ion-card-header>
+
+    <ion-list>
+      <ion-label>{{ "_BUNCHES_ADDED_LBL" | translate }} : {{bindCount}}</ion-label>
+<ion-label>{{ "_TOTAL_HARVESTED_LBL" | translate }}: {{bindCount}}</ion-label>
+<button ion-button full (click)="loadBunches(location.location_GUID)" >{{ "_LOAD_BTN" | translate }}</button>
+      <ion-label>{{ "_LOADED_LBL" | translate }} : {{bindCount}}</ion-label>
+<ion-label>{{ "_BALANCE_LBL" | translate }} : {{bindCount}}</ion-label>
+
+
+    </ion-list>
+  </ion-card>
 </ion-content>

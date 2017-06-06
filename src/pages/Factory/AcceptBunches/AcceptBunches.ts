@@ -19,21 +19,11 @@ export class AcceptBunchesPage {
     constructor(public actionsheetCtrl: ActionSheetController,
         public platform: Platform, public toastCtrl: ToastController, public navCtrl: NavController, public http: Http, public _form: FormBuilder, public navParams: NavParams, public alertCtrl: AlertController) {
 
-        var url = "http://api.zen.com.my/api/v2/esawitdb/_table/active_vehicle_location_view?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
+//Todo: Inject into a global function
+        var url = "http://api.zen.com.my/api/v2/esawitdb/_table/master_location?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
         this.http.get(url).map(res => res.json()).subscribe(data => {
             this.locationFromDb = data["resource"];
         });
-
-           url = "http://api.zen.com.my/api/v2/esawitdb/_table/master_driver?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
-        this.http.get(url).map(res => res.json()).subscribe(data => {
-            this.driverFromDb = data["resource"];
-        });
-
-           url = "http://api.zen.com.my/api/v2/esawitdb/_table/master_vehicle?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
-        this.http.get(url).map(res => res.json()).subscribe(data => {
-            this.vehicleFromDb = data["resource"];
-        });
-
         this.AddTransaction = this._form.group({
             "loading_location_GUID": ["", Validators.required],
             "bunch_count": ["", Validators.required],
@@ -43,14 +33,18 @@ export class AcceptBunchesPage {
     }
 
     onLocationSelect(locationSelected:any){
-         
-        for(let location of this.locationFromDb){
-            if(locationSelected!=location.location_GUID){
-            console.log(location.registration_no);
-            }
-        }
-      
-        
+
+//Todo: Inject into a global function
+      var     url = "http://api.zen.com.my/api/v2/esawitdb/_table/active_vehicle_location_view?filter=location_GUID="+locationSelected+"&api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
+        this.http.get(url).map(res => res.json()).subscribe(data => {
+            this.vehicleFromDb = data["resource"];
+        });   
+
+//Todo: Inject into a global function
+         var     url = "http://api.zen.com.my/api/v2/esawitdb/_table/active_driver_location_view?filter=location_GUID="+locationSelected+"&api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
+        this.http.get(url).map(res => res.json()).subscribe(data => {
+            this.driverFromDb = data["resource"];
+        });    
     }
 
     //     openGlobalMenu(){
@@ -69,9 +63,11 @@ export class AcceptBunchesPage {
         let options = new RequestOptions({ headers: queryHeaders });
         this.showConfirm();
     }
+
+    //Todo: Make it Global
     showConfirm() {
         let confirm = this.alertCtrl.create({
-            title: 'Create New Count?',
+            title: 'Create New Record?',
             message: 'Do you really want to add new count with given values?',
             buttons: [
                 {
@@ -99,13 +95,13 @@ export class AcceptBunchesPage {
         confirm.present();
     }
 
+//Todo: Make it Global
     showToast(position: string, tostMessage: string) {
         let toast = this.toastCtrl.create({
             message: tostMessage,
             duration: 2000,
             position: position
         });
-
         toast.present(toast);
     }
 }
