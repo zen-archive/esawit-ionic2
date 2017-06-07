@@ -18,7 +18,7 @@
       <ion-item>
         <ion-label >{{ "_MONTH_LBL" | translate }}</ion-label>
          <ion-select [formControl]="AddTransaction.controls['month']" [(ngModel)]="monthSelect" interface="popover" placeholder='{{"_SELECT_MONTH_HINT" | translate}}'>
-          <ion-option *ngFor="let month of monthsFromStorage" value={{month.value}}>{{month.name}}</ion-option>
+          <ion-option *ngFor="let month of monthsFromStorage" value={{month.value}}>{{ "_MONTH." + month.value | translate }}</ion-option>
         </ion-select>
       </ion-item>
 
