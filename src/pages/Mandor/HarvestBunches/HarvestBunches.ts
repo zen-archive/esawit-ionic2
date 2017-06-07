@@ -4,6 +4,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HarvestedHistoryPage } from '../HarvestedHistory/HarvestedHistory';
 import { Observable } from 'rxjs/Observable';
+import $ from "jquery";
 // import { Storage } from '@ionic/storage';
 // import { MandorHomePage } from '../MandorHome/MandorHome';
 // import { SettingsPage } from '../../Shared/Settings/Settings';
@@ -36,11 +37,14 @@ export class HarvestBunchesPage {
     loadBunches(selectedLocation:string){
 console.log(selectedLocation);
     }
-    
-    submitCount() {
+    onLocationSelect(selectedLocation:string){        
+    }
+
+    submitCount(location:string) {
         var queryHeaders = new Headers();
         queryHeaders.append('Content-Type', 'application/json');
         let options = new RequestOptions({ headers: queryHeaders });
+        console.log(location);
         this.showConfirm();
     }
     showConfirm() {

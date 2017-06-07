@@ -59,45 +59,7 @@ export class CountBunchesPage {
     //     }
 
 
-    // openMenu() {
-    //     let actionSheet = this.actionsheetCtrl.create({
-    //         cssClass: 'action-sheets-basic-page',
-    //         buttons: [
-    //             {
-    //                 text: 'Home',
-    //                 icon: 'home',
-    //                 handler: () => {
-    //                     this.navCtrl.setRoot(MandorHomePage);
-
-    //                 }
-    //             },
-    //             {
-    //                 text: 'Harvest Bunches',
-    //                 icon: 'cut',
-    //                 handler: () => {
-    //                     this.navCtrl.setRoot(HarvestBunchesPage);
-    //                 }
-    //             },
-    //             {
-    //                 text: 'Harvested History',
-    //                 icon: 'bus',
-    //                 handler: () => {
-    //                     this.navCtrl.setRoot(HarvestedHistoryPage);
-    //                 }
-    //             },
-    //             {
-    //                 text: 'Settings',
-    //                 icon: 'settings',
-    //                 handler: () => {
-    //                     this.navCtrl.setRoot(SettingsPage);
-    //                 }
-    //             }]
-
-
-    //     });
-    //     actionSheet.present();
-    // }
-
+    
     onLink(url: string) {
         window.open(url);
     }
