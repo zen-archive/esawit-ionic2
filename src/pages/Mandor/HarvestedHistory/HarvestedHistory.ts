@@ -27,15 +27,7 @@ export class HarvestedHistoryPage {
     // openGlobalMenu() {
     //     this.mainMenu.openMenu();
     // }
-    // getLanguage() {
-    //     this.storage.get('language').then(lang => {
-    //         var url = "assets/Languages/" + lang + ".json";
-    //         console.log("val", url);
-    //         this.http.get(url).map(res => res.json()).subscribe(data => {
-    //             this.labelsFromStorage = data["LanguageData"];
-    //         });
-    //     });
-    // }
+  
 
     itemSelected(item: string) {
         console.log("Selected Item", item);
