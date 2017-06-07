@@ -5,27 +5,46 @@
 </ion-header>
 
 <ion-content> 
+        <h1>{{ "_HARVEST_BUNCHES_HEADER" | translate }}</h1>
   <ion-card class="cards-list-demo" *ngFor="let location of locationFromDB">
     <ion-card-header>
       {{ "_LOCATION_LBL" | translate }} : {{location.location_name}}
     </ion-card-header>
 
     <ion-list>
-      <h1>{{ "_HARVEST_BUNCHES_HEADER" | translate }}</h1>
 
-    <form [formGroup]="AddTransaction">
+   
           <ion-item>
         <ion-label fixed>{{ "_TOTAL_BUNCHES_LBL" | translate }}</ion-label>
-        <ion-input  [formControl]="AddTransaction.controls['bunch_count']" highlight-color="energized" type="text"></ion-input>
+        <ion-input [(ngModel)]='location.ID'  highlight-color="energized" type="text" value=""></ion-input>
       </ion-item>
       <ion-col>
-        <button ion-button full type="submit" (click)="submitCount(location.location_GUID)">{{ "_SUBMIT_BTN" | translate }}</button>
+        <button ion-button full type="submit" (click)="submitCount(location.location_GUID,location.ID)">{{ "_SUBMIT_BTN" | translate }}</button>
       </ion-col>
-    </form>    
+
       <ion-label>{{ "_TOTAL_HARVESTED_LBL" | translate }}: </ion-label>
       <ion-label>{{ "_LOADED_LBL" | translate }} : </ion-label>
       <ion-label>{{ "_BALANCE_LBL" | translate }} : </ion-label>
-            <button ion-button full (click)="loadBunches(location.location_GUID)">{{ "_LOAD_BTN" | translate }}</button>
+
+<ion-item>
+  <ion-label>_VEHICLE_NO_LBL</ion-label>
+  <ion-select [(ngModel)]="vehicleSelect" interface="popover" placeholder='{{"_SELECT_VEHICLE_HINT" | translate}}'>
+          <ion-option *ngFor="let vehicle of vehicleFromDB" value={{vehicle.vehicle_GUID}}>{{vehicle.registration_no}}</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label>_DRIVER_LBL</ion-label>
+  <ion-select [(ngModel)]="driverSelect" interface="popover" placeholder='{{"_SELECT_DRIVER_HINT" | translate}}'>
+          <ion-option *ngFor="let driver of driverFromDB" value={{driver.driver_GUID}}>{{driver.fullname}}</ion-option>
+  </ion-select>
+</ion-item>
+
+  <ion-item>
+        <ion-label fixed>{{ "_TOTAL_BUNCHES_LBL" | translate }}</ion-label>
+        <ion-input [(ngModel)]='location.ID'  highlight-color="energized" type="text" value=""></ion-input>
+      </ion-item>
+            <button ion-button full (click)="loadBunches(location.location_GUID,vehicleSelect,driverSelect,location.ID)">{{ "_LOAD_BTN" | translate }}</button>
     </ion-list>
   </ion-card>
 </ion-content>
