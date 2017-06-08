@@ -10,9 +10,19 @@ import { SettingsPage } from '../Settings/Settings';
     selector: 'page-login',
     templateUrl: 'Login.html'
 })
-export class LoginPage {
+export class LoginPage { today: number = Date.now();
     constructor(private mainMenu: MainMenu, public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController) {
-    }
+    var myDate =new Date();
+    let options = {
+  year: 'numeric', month: 'numeric', day: 'numeric',
+  hour: 'numeric', minute: 'numeric', second: 'numeric',
+  hour12: false
+};
+var secondDate = new Date().toLocaleDateString("en-GB", options);
+  console.log(secondDate);
+    // console.log( myDate.getDate()+"/"+myDate.getMonth()+"/"+myDate.getFullYear()+" "+myDate.getHours()+":"+myDate.getMinutes()+":"+myDate.getSeconds());
+    // console.log(this.today | date:'y-M-d H:m:s');
+}
     onLink(url: string) {
         window.open(url);
     }
