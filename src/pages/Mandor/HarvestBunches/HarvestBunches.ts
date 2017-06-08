@@ -165,6 +165,8 @@ this.showConfirm('http://api.zen.com.my/api/v2/esawitdb/_table/transact_loading'
         window.open(url);
     }
 
+// Declaration is optional:
+// itemID_loadState = true;
 
 }
 

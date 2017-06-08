@@ -25,26 +25,32 @@
       <ion-label>{{ "_TOTAL_HARVESTED_LBL" | translate }}: </ion-label>
       <ion-label>{{ "_LOADED_LBL" | translate }} : </ion-label>
       <ion-label>{{ "_BALANCE_LBL" | translate }} : </ion-label>
-
-<ion-item>
-  <ion-label>_VEHICLE_NO_LBL</ion-label>
-  <ion-select [(ngModel)]="vehicleSelect" interface="popover" placeholder='{{"_SELECT_VEHICLE_HINT" | translate}}'>
-          <ion-option *ngFor="let vehicle of vehicleFromDB" value={{vehicle.vehicle_GUID}}>{{vehicle.registration_no}}</ion-option>
-  </ion-select>
-</ion-item>
-
-<ion-item>
-  <ion-label>_DRIVER_LBL</ion-label>
-  <ion-select [(ngModel)]="driverSelect" interface="popover" placeholder='{{"_SELECT_DRIVER_HINT" | translate}}'>
-          <ion-option *ngFor="let driver of driverFromDB" value={{driver.driver_GUID}}>{{driver.fullname}}</ion-option>
-  </ion-select>
-</ion-item>
-
-  <ion-item>
-        <ion-label fixed>{{ "_TOTAL_BUNCHES_LBL" | translate }}</ion-label>
-        <ion-input [(ngModel)]='location.ID'  highlight-color="energized" type="text" value=""></ion-input>
+<ion-card [hidden]="!itemID_loadState">
+  <ion-card-header>
+    {{"_LOADING_LBL" | translate}}
+  </ion-card-header>
+  <ion-card-content>
+        <ion-item>
+        <ion-label>_VEHICLE_NO_LBL</ion-label>
+        <ion-select [(ngModel)]="vehicleSelect" interface="popover" placeholder='{{"_SELECT_VEHICLE_HINT" | translate}}'>
+                <ion-option *ngFor="let vehicle of vehicleFromDB" value={{vehicle.vehicle_GUID}}>{{vehicle.registration_no}}</ion-option>
+        </ion-select>
       </ion-item>
-            <button ion-button full (click)="loadBunches(location.location_GUID,vehicleSelect,driverSelect,location.ID)">{{ "_LOAD_BTN" | translate }}</button>
+      <ion-item>
+        <ion-label>_DRIVER_LBL</ion-label>
+        <ion-select [(ngModel)]="driverSelect" interface="popover" placeholder='{{"_SELECT_DRIVER_HINT" | translate}}'>
+                <ion-option *ngFor="let driver of driverFromDB" value={{driver.driver_GUID}}>{{driver.fullname}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+            <ion-label fixed>{{ "_TOTAL_BUNCHES_LBL" | translate }}</ion-label>
+            <ion-input [(ngModel)]='location.ID'  highlight-color="energized" type="text" value=""></ion-input>
+      </ion-item>
+      </ion-card-content>
+</ion-card>
+  
+
+    <button ion-button full (click)="itemID_loadState = !itemID_loadState">{{ "_LOAD_BTN" | translate }}</button>
     </ion-list>
   </ion-card>
 </ion-content>
