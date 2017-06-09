@@ -9,7 +9,7 @@ import { MainMenu } from "../../../providers/MainMenu";
     templateUrl: 'SurveyorHome.html'
 })
 export class SurveyorHomePage {
-// private mainMenu: MainMenu, 
+    // private mainMenu: MainMenu, 
     constructor(public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController) {
 
     }
@@ -22,13 +22,13 @@ export class SurveyorHomePage {
     // }
 
     public NewCount() {
-            // this.navCtrl.setRoot(CountBunchesPage);
+        // this.navCtrl.setRoot(CountBunchesPage);
         this.navCtrl.push(CountBunchesPage, {});
 
     }
     public GetCountHistory() {
-            // this.navCtrl.setRoot(CountBunchesHistoryPage);
-                    this.navCtrl.push(CountBunchesHistoryPage, {});
+        // this.navCtrl.setRoot(CountBunchesHistoryPage);
+        this.navCtrl.push(CountBunchesHistoryPage, {});
 
     }
 }

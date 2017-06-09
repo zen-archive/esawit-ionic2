@@ -14,7 +14,7 @@ export class AcceptedBunchesHistoryPage {
     labelsFromStorage: any;
     acceptedBunchesHistoryData: any;
     //  private mainMenu: MainMenu,
-    constructor( public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public http: Http, public platform: Platform, public actionsheetCtrl: ActionSheetController) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public http: Http, public platform: Platform, public actionsheetCtrl: ActionSheetController) {
         var url = "http://api.zen.com.my/api/v2/esawitdb/_table/transact_unloading?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
         this.http.get(url).map(res => res.json()).subscribe(data => {
             this.acceptedBunchesHistoryData = data["resource"];

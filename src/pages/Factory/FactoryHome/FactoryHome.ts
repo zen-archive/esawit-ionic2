@@ -9,7 +9,7 @@ import { AcceptedBunchesHistoryPage } from '../AcceptedBunchesHistory/AcceptedBu
     templateUrl: 'FactoryHome.html'
 })
 export class FactoryHomePage {
-// private mainMenu: MainMenu, 
+    // private mainMenu: MainMenu, 
     constructor(public navCtrl: NavController, public platform: Platform, public actionsheetCtrl: ActionSheetController) {
 
     }

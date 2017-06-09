@@ -44,6 +44,7 @@
     "_BUNCHES_COUNT_HISTORY_HEADER":"Bunches Count History",
     "_ACCEPT_BUNCHES_HEADER":"Accept Bunches",
     "_ACCEPTED_BUNCHES_HISTORY_HEADER":"Accepted Bunches History",
+    "_LOAD_HARVESTED_BUNCHES_HEADER":"Load Harvested Bunches",
       "_MONTH": { 
         "1": "Jan",
         "2": "Feb",

@@ -73,6 +73,9 @@ export class HarvestBunchesPage {
         // console.log(location);
         this.showConfirm('http://api.zen.com.my/api/v2/esawitdb/_table/transact_harvest', this.harvestModel.toJson(true));
     }
+    submitLoad() {
+
+    }
     showConfirm(url: string, myModel: any) {
         let confirm = this.alertCtrl.create({
             title: 'Create New Count?',

@@ -11,15 +11,15 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AcceptBunchesPage {
 
-    locationFromDb:any;
-    vehicleFromDb:any;
-    driverFromDb:any;
+    locationFromDb: any;
+    vehicleFromDb: any;
+    driverFromDb: any;
     AddTransaction: FormGroup;
 
     constructor(public actionsheetCtrl: ActionSheetController,
         public platform: Platform, public toastCtrl: ToastController, public navCtrl: NavController, public http: Http, public _form: FormBuilder, public navParams: NavParams, public alertCtrl: AlertController) {
 
-//Todo: Inject into a global function
+        //Todo: Inject into a global function
         var url = "http://api.zen.com.my/api/v2/esawitdb/_table/master_location?api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
         this.http.get(url).map(res => res.json()).subscribe(data => {
             this.locationFromDb = data["resource"];
@@ -32,18 +32,18 @@ export class AcceptBunchesPage {
         });
     }
 
-    onLocationSelect(locationSelected:any){
+    onLocationSelect(locationSelected: any) {
 
-//Todo: Inject into a global function
-      var     url = "http://api.zen.com.my/api/v2/esawitdb/_table/active_vehicle_location_view?filter=location_GUID="+locationSelected+"&api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
+        //Todo: Inject into a global function
+        var url = "http://api.zen.com.my/api/v2/esawitdb/_table/active_vehicle_location_view?filter=location_GUID=" + locationSelected + "&api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
         this.http.get(url).map(res => res.json()).subscribe(data => {
             this.vehicleFromDb = data["resource"];
-        });   
-//Todo: Inject into a global function
-         var     url = "http://api.zen.com.my/api/v2/esawitdb/_table/active_driver_location_view?filter=location_GUID="+locationSelected+"&api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
+        });
+        //Todo: Inject into a global function
+        var url = "http://api.zen.com.my/api/v2/esawitdb/_table/active_driver_location_view?filter=location_GUID=" + locationSelected + "&api_key=b34c8b6e26a41f07dee48513714a534920f647cd48f299e9f28410a86d8a2cb4";
         this.http.get(url).map(res => res.json()).subscribe(data => {
             this.driverFromDb = data["resource"];
-        });    
+        });
     }
 
     //     openGlobalMenu(){
@@ -94,7 +94,7 @@ export class AcceptBunchesPage {
         confirm.present();
     }
 
-//Todo: Make it Global
+    //Todo: Make it Global
     showToast(position: string, tostMessage: string) {
         let toast = this.toastCtrl.create({
             message: tostMessage,

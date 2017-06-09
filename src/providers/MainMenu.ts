@@ -20,7 +20,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class MainMenu {
   navCtrl: any;
   constructor(public app: App, public http: Http, public actionsheetCtrl: ActionSheetController, public translate: TranslateService) {
-//    translate.setDefaultLang('en');
+    //    translate.setDefaultLang('en');
     this.navCtrl = this.app.getActiveNav();
     console.log('Hello ActionSheet Provider');
   }
