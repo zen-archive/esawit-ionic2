@@ -55,27 +55,31 @@ export class HarvestBunchesPage {
 
     submitCount(location: string, bunch_count: number) {
         this.harvestModel.location_GUID = location;
-        this.harvestModel.bunch_count = bunch_count; var myDate = new Date();
+        this.harvestModel.bunch_count = bunch_count;
+        var myDate = new Date();
         this.harvestModel.createdby_GUID = "ssh";
+        this.harvestModel.updated_ts=     this.harvestModel.created_ts = new Date(myDate.getUTCFullYear(),myDate.getUTCMonth(),myDate.getUTCDate(),myDate.getUTCHours(),myDate.getUTCMinutes(),myDate.getSeconds());
+        // this.harvestModel.updated_ts=     this.harvestModel.created_ts = new Date(myDate.getFullYear(),myDate.getMonth(),myDate.getDate(),myDate.getHours(),myDate.getMinutes(),myDate.getSeconds());
+        this.harvestModel.updatedby_GUID = "ssh";
+        this.showConfirm('http://api.zen.com.my/api/v2/esawitdb/_table/transact_harvest', this.harvestModel.toJson(true));
+
         let options = {
             year: 'numeric', month: 'numeric', day: 'numeric',
             hour: 'numeric', minute: 'numeric', second: 'numeric',
             hour12: false
         };
-        var secondDate = new Date().toLocaleDateString("en-GB", options);
-        // myDate.getDate()+"/"+myDate.getMonth()+"/"+myDate.getFullYear()+" "+myDate.getHours()+":"+myDate.getMinutes()+":"+myDate.getSeconds()
+        // this.harvestModel.updated_ts = 
+        // this.harvestModel.created_ts = new Date(new Date().toLocaleDateString("en-GB", options));
+        // console.log(myDate.getDate()+"/"+myDate.getMonth()+"/"+myDate.getFullYear()+" "+myDate.getHours()+":"+myDate.getMinutes()+":"+myDate.getSeconds());
         //    new Date(myDate.getFullYear(),myDate.getMonth(),myDate.getDate(),myDate.getHours(),myDate.getMinutes(),myDate.getSeconds());
-        this.harvestModel.created_ts = secondDate;
+        // this.harvestModel.updated_ts = new Date(myDate.getFullYear(),myDate.getMonth(),myDate.getDate(),myDate.getUTCHours(),myDate.getMinutes(),myDate.getSeconds());
         // myDate.getDate()+"/"+myDate.getMonth()+"/"+myDate.getFullYear()+" "+myDate.getHours()+":"+myDate.getMinutes()+":"+myDate.getSeconds();
         // var queryHeaders = new Headers();
         // queryHeaders.append('Content-Type', 'application/json');
         // let options = new RequestOptions({ headers: queryHeaders });
         // console.log(location);
-        this.showConfirm('http://api.zen.com.my/api/v2/esawitdb/_table/transact_harvest', this.harvestModel.toJson(true));
     }
-    submitLoad() {
 
-    }
     showConfirm(url: string, myModel: any) {
         let confirm = this.alertCtrl.create({
             title: 'Create New Count?',

@@ -58,10 +58,10 @@
           </ion-item>
           <ion-item>
             <ion-label fixed>{{ "_TOTAL_BUNCHES_LBL" | translate }}</ion-label>
-            <ion-input [(ngModel)]='location.ID' highlight-color="energized" type="text" value=""></ion-input>
+            <ion-input [(ngModel)]='bunchCount' highlight-color="energized" type="text" value=""></ion-input>
           </ion-item>
           <ion-col>
-            <button ion-button full type="submit" (click)="submitLoad()">{{ "_SUBMIT_BTN" | translate }}</button>
+            <button ion-button full type="submit" (click)="loadBunches(location.location_GUID,vehicleSelect,driverSelect,bunchCount)">{{ "_SUBMIT_BTN" | translate }}</button>
           </ion-col>
         </ion-card-content>
       </ion-card>
